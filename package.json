@@ -1,0 +1,29 @@
+{
+  "name": "oop",
+  "version": "0.0.0",
+  "description": "Object oriented programming helper functions",
+  "scripts": {
+    "clean-bootstrap": "lerna bootstrap",
+    "create-package": "lerna create",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msinnes/oop.git"
+  },
+  "keywords": [
+    "oop"
+  ],
+  "author": "Michael Sinnes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msinnes/oop/issues"
+  },
+  "homepage": "https://github.com/msinnes/oop#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.24.3",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "lerna": "^8.1.2"
+  }
+}
