@@ -84,7 +84,7 @@ describe('abstractGetter', () => {
 
     expect(() => {
       new HasProp();
-    }).toThrow();
+    }).not.toThrow();
     expect(() => {
       new NoProp();
     }).toThrow('prop is an abstract getter and must be on the class prototype');
@@ -104,7 +104,7 @@ describe('abstractGetter', () => {
     }
     expect(() => {
       new HasProp();
-    }).toThrow('prop is an abstract getter and must be on the class prototype');
+    }).not.toThrow();
     expect(() => {
       new SomeClass();
     }).toThrow('prop is an abstract getter and must be on the class prototype');
@@ -247,7 +247,7 @@ describe('abstractSetter', () => {
 
     expect(() => {
       new HasProp();
-    }).toThrow();
+    }).not.toThrow();
     expect(() => {
       new NoProp();
     }).toThrow('prop is an abstract setter and must be on the class prototype');
@@ -268,7 +268,7 @@ describe('abstractSetter', () => {
     }
     expect(() => {
       new HasProp();
-    }).toThrow('prop is an abstract setter and must be on the class prototype');
+    }).not.toThrow();
     expect(() => {
       new SomeClass();
     }).toThrow('prop is an abstract setter and must be on the class prototype');

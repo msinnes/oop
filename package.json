@@ -11,7 +11,8 @@
     "lerna": "^8.1.5"
   },
   "scripts": {
-    "bootstrap": "yarn run clean && lerna run build && npm install -w @packages",
+    "build": "lerna run build",
+    "bootstrap": "yarn run clean && npm install -w @packages && yarn run build && npm install -w @e2e && yarn run build",
     "coverage": "lerna run coverage",
     "clean": "lerna run clean",
     "lint": "lerna run lint",

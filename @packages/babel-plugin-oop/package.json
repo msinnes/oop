@@ -54,7 +54,6 @@
     "lint": "eslint src/",
     "lint-fix": "eslint src/ --fix",
     "rollup": "rollup --config rollup.config.js",
-    "start": "jest --watchAll",
     "test": "jest"
   }
 }

@@ -207,6 +207,33 @@ const MyClass = clazz((_super, svc) => {
 `,
 };
 
+const emptyClassProperty = {
+  js: `
+class MyClass {
+  v: Array<number>;
+
+  constructor(...values) {
+    this.v = [...values];
+  }
+}
+  `,
+  expected: `
+import { clazz, doExtend } from "@msinnes/oop";
+const MyClass = clazz((_super, svc) => {
+  function MyClass(...values) {
+    svc.init();
+    _super.apply(this);
+    svc.checkThis(this).v = [...values];
+    svc.close();
+  }
+  doExtend(MyClass, _super, {
+    v: null
+  });
+  return MyClass;
+})();
+  `,
+};
+
 // Class Declaration - Abstract
 const emptyClassAbstract = {
   js: `
@@ -529,6 +556,7 @@ export {
   addClassPropertiesAndClassMethodsToClassPrototype,
   mapSuperAccessorsOntoSuperPrototype,
   addGettersAndSettersToObjectPrototypes,
+  emptyClassProperty,
 
   emptyClassAbstract,
   gettersAbstract,

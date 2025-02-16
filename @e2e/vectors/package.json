@@ -1,0 +1,35 @@
+{
+  "name": "@e2e/vectors",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "msinnes <michael.sinnes@gmail.com>",
+  "homepage": "https://github.com/msinnes/oop#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msinnes/oop.git"
+  },
+  "scripts": {
+    "build": "tsc && yarn transform && yarn rollup && yarn uglify && yarn clean-src",
+    "clean": "rimraf dist",
+    "clean-src": "rimraf src/*.js src/**/*.js",
+    "rollup": "rollup --config rollup.config.js",
+    "test": "jest",
+    "transform": "babel src --out-dir src --extensions .ts",
+    "uglify": "uglifyjs dist/oop.js --output dist/oop.min.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/plugin-transform-typescript": "^7.24.8",
+    "@types/jest": "^29.5.12",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.18.1",
+    "ts-jest": "^29.2.2",
+    "typescript": "^5.5.3",
+    "uglifyjs": "^2.4.11"
+  }
+}

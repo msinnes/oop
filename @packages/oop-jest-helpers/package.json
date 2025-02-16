@@ -27,11 +27,13 @@
   "bugs": {
     "url": "https://github.com/msinnes/oop/issues"
   },
+  "types": "./src/index.d.ts",
   "devDependencies": {
     "@babel/cli": "^7.24.7",
     "@babel/eslint-parser": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
     "@msinnes/oop": "^0.0.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "@shared/eslint-config": "^0.0.0",
     "@shared/jest-config": "^0.0.0",
     "@shared/rollup-config": "^0.0.0",
@@ -48,7 +50,6 @@
     "lint": "eslint src/",
     "lint-fix": "eslint src/ --fix",
     "rollup": "rollup --config rollup.config.js",
-    "start": "jest --watchAll",
     "test": "jest"
   }
 }

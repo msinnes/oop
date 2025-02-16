@@ -47,6 +47,7 @@ function Builder() {
   this.functionDeclaration = t.functionDeclaration;
   this.functionExpression = t.functionExpression;
   this.identifier = t.identifier;
+  this.nullLiteral = t.nullLiteral;
   this.objectExpression = t.objectExpression;
   this.objectProperty = t.objectProperty;
   this.returnStatement = t.returnStatement;

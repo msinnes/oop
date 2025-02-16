@@ -1,0 +1,42 @@
+{
+  "name": "@e2e/heroes",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "msinnes <michael.sinnes@gmail.com>",
+  "homepage": "https://github.com/msinnes/oop#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msinnes/oop.git"
+  },
+  "scripts": {
+    "build": "tsc && yarn transform && yarn rollup && yarn uglify && yarn clean-src",
+    "clean": "rimraf dist",
+    "clean-src": "rimraf src/*.js src/**/*.js",
+    "rollup": "rollup --config rollup.config.js",
+    "start": "yarn build && node ./dist/heroes.js",
+    "test": "jest",
+    "transform": "babel src --out-dir src --extensions .ts --ignore **/*.test.js",
+    "uglify": "uglifyjs dist/heroes.js --output dist/heroes.min.js"
+  },
+  "dependencies": {
+    "@msinnes/oop": "0.0.0"
+
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/plugin-transform-typescript": "^7.24.8",
+    "@msinnes/babel-plugin-oop": "0.0.0",
+    "@msinnes/oop-jest-helpers": "0.0.0",
+    "@types/jest": "^29.5.12",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.18.1",
+    "ts-jest": "^29.2.2",
+    "typescript": "^5.5.3",
+    "uglifyjs": "^2.4.11"
+  }
+}

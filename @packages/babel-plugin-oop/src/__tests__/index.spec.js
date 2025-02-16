@@ -9,6 +9,7 @@ import {
   addClassPropertiesAndClassMethodsToClassPrototype,
   mapSuperAccessorsOntoSuperPrototype,
   addGettersAndSettersToObjectPrototypes,
+  emptyClassProperty,
 
   emptyClassAbstract,
   gettersAbstract,
@@ -68,6 +69,10 @@ describe('ClassDeclaration', () => {
 
   it('should add getters and setters to the object prototype', () => {
     runTest(addGettersAndSettersToObjectPrototypes);
+  });
+
+  it('should default property type declarations to null', () => {
+    runTest(emptyClassProperty);
   });
 
   describe('abstract', () => {

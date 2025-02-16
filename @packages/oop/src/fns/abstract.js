@@ -10,7 +10,7 @@ function abstract(InputClass) {
 }
 
 const abstractGetter = (instance, getterName) => {
-  const test = Object.getOwnPropertyDescriptor(instance, getterName);
+  const test = Object.getOwnPropertyDescriptor(instance.constructor.prototype, getterName);
   if (!test || !(test.get instanceof Function)) throw new Error(`${getterName} is an abstract getter and must be on the class prototype`);
 };
 
@@ -25,7 +25,7 @@ const abstractProperty = (instance, propertyName) => {
 };
 
 const abstractSetter = (instance, getterName) => {
-  const test = Object.getOwnPropertyDescriptor(instance, getterName);
+  const test = Object.getOwnPropertyDescriptor(instance.constructor.prototype, getterName);
   if (!test || !(test.set instanceof Function)) throw new Error(`${getterName} is an abstract setter and must be on the class prototype`);
 };
 

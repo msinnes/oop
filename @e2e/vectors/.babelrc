@@ -1,0 +1,4 @@
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": ["@msinnes/babel-plugin-oop", "@babel/plugin-transform-typescript"]
+}

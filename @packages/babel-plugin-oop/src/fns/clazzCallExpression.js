@@ -44,7 +44,7 @@ const classFunctionDeclaration = state => {
 
 const classProto = (nodeId, props, methods) => builder.objectExpression([
   ...props.map(prop => {
-    return builder.objectProperty(prop.key, prop.value);
+    return builder.objectProperty(prop.key, prop.value || builder.nullLiteral());
   }),
   ...methods.map(method => {
     return builder.objectProperty(method.key, builder.functionExpression(null, method.params, method.body));
