@@ -8,4 +8,10 @@ describe('toExtend', () => {
     expect(ChildClass).toExtend(BaseClass);
     expect(DoesNotExtendBaseClass).not.toExtend(BaseClass);
   });
+
+  it('should have the correct message on failure', () => {
+    expect(() => {
+      expect(function() {}).toExtend(undefined);
+    }).toThrow('input should extend the expected class');
+  });
 });

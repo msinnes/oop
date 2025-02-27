@@ -27,5 +27,12 @@ describe('toBeAbstract', () => {
     }).toBeAbstract();
 
     expect(class MyClass {}).not.toBeAbstract();
+    expect(undefined).not.toBeAbstract();
+  });
+
+  it('should have the correct message on failure', () => {
+    expect(() => {
+      expect(function() {}).toBeAbstract();
+    }).toThrow('expected input to be an abstract class');
   });
 });

@@ -13,8 +13,9 @@
   },
   "scripts": {
     "build": "tsc && yarn transform && yarn rollup && yarn uglify && yarn clean-src",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist && rimraf coverage",
     "clean-src": "rimraf src/*.js src/**/*.js",
+    "coverage": "jest --coverage",
     "rollup": "rollup --config rollup.config.js",
     "start": "yarn build && node ./dist/heroes.js",
     "test": "jest",
@@ -23,17 +24,19 @@
   },
   "dependencies": {
     "@msinnes/oop": "0.0.0"
-
   },
   "devDependencies": {
     "@babel/cli": "^7.24.8",
     "@babel/plugin-transform-typescript": "^7.24.8",
     "@msinnes/babel-plugin-oop": "0.0.0",
     "@msinnes/oop-jest-helpers": "0.0.0",
+    "@shared/eslint-config": "^0.0.0",
+    "@shared/jest-config": "^0.0.0",
+    "@shared/rollup-config": "^0.0.0",
     "@types/jest": "^29.5.12",
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
-    "rimraf": "^6.0.1",
+    "rimraf": "@5.0.1",
     "rollup": "^4.18.1",
     "ts-jest": "^29.2.2",
     "typescript": "^5.5.3",

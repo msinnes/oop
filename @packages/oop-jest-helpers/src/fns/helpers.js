@@ -10,17 +10,17 @@ function extractError(fn) {
   return err;
 }
 
-const checkError = (regexp, err, search) => {
+const checkError = (regexp, err) => {
   let found;
   if (err) {
     const match =  regexp.exec(err.message);
     if (match) found = match[1];
   }
-  return !!search ? found === search : !!found;
+  return found;
 };
 
 function extendz(c, Class) {
-  if (!c || !c.prototype) {
+  if (!c || !c.prototype || !Class || !Class.prototype) {
     return false;
   }
   let curr = c.prototype;
@@ -54,24 +54,24 @@ function isAbstractClass(Class) {
   return !!err && err.message === abstractClass;
 }
 
-function hasAbstractGetter(Class, getter) {
+function hasAbstractGetter(Class) {
   const err = extractError(() => new Class());
-  return checkError(/(.+) is an abstract getter and must be on the class prototype/g, err, getter);
+  return checkError(/(.+) is an abstract getter and must be on the class prototype/g, err);
 }
 
-function hasAbstractMethod(Class, method) {
+function hasAbstractMethod(Class) {
   const err = extractError(() => new Class());
-  return checkError(/(.+) is an abstract method and must be on the class prototype/g, err, method);
+  return checkError(/(.+) is an abstract method and must be on the class prototype/g, err);
 }
 
-function hasAbstractProperty(Class, property) {
+function hasAbstractProperty(Class) {
   const err = extractError(() => new Class());
-  return checkError(/(.+) is an abstract property and cannot be undefined or null/g, err, property);
+  return checkError(/(.+) is an abstract property and cannot be undefined or null/g, err);
 }
 
-function hasAbstractSetter(Class, setter) {
+function hasAbstractSetter(Class) {
   const err = extractError(() => new Class());
-  return checkError(/(.+) is an abstract setter and must be on the class prototype/g, err, setter);
+  return checkError(/(.+) is an abstract setter and must be on the class prototype/g, err);
 }
 
 export {

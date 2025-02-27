@@ -16,6 +16,26 @@ describe('Vec2D', () => {
   it('should extend Vector', () => {
     expect(Vec2D).toExtend(Vector);
   });
+
+  describe('instance', () => {
+    let instance;
+    beforeEach(() => {
+      instance = new Vec2D(7, 4);
+    });
+
+    describe('plus', () => {
+      it('should be a function', () => {
+        expect(instance.plus).toBeInstanceOf(Function);
+      });
+
+      it('should sum two vectors', () => {
+        const vec = new Vec2D(2, 3);
+        const sum = instance.plus(vec);
+        expect(sum).toBeInstanceOf(Vec2D);
+        expect(sum.v).toMatchObject([9, 7]);
+      });
+    });
+  });
 });
 
 describe('Vec3D', () => {
