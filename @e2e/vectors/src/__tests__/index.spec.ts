@@ -23,6 +23,19 @@ describe('Vec2D', () => {
       instance = new Vec2D(7, 4);
     });
 
+    describe('minus', () => {
+      it('should be a function', () => {
+        expect(instance.minus).toBeInstanceOf(Function);
+      });
+
+      it('should subtract two vectors', () => {
+        const vec = new Vec2D(2, 3);
+        const difference = instance.minus(vec);
+        expect(difference).toBeInstanceOf(Vec2D);
+        expect(difference.v).toMatchObject([5, 1]);
+      });
+    });
+
     describe('plus', () => {
       it('should be a function', () => {
         expect(instance.plus).toBeInstanceOf(Function);
@@ -45,5 +58,38 @@ describe('Vec3D', () => {
 
   it('should extend Vector', () => {
     expect(Vec3D).toExtend(Vector);
+  });
+
+  describe('instance', () => {
+    let instance;
+    beforeEach(() => {
+      instance = new Vec3D(7, 4, 5);
+    });
+
+    describe('minus', () => {
+      it('should be a function', () => {
+        expect(instance.minus).toBeInstanceOf(Function);
+      });
+
+      it('should sum two vectors', () => {
+        const vec = new Vec3D(2, 3, 6);
+        const sum = instance.minus(vec);
+        expect(sum).toBeInstanceOf(Vec3D);
+        expect(sum.v).toMatchObject([5, 1, -1]);
+      });
+    });
+
+    describe('plus', () => {
+      it('should be a function', () => {
+        expect(instance.plus).toBeInstanceOf(Function);
+      });
+
+      it('should sum two vectors', () => {
+        const vec = new Vec3D(2, 3, 6);
+        const sum = instance.plus(vec);
+        expect(sum).toBeInstanceOf(Vec3D);
+        expect(sum.v).toMatchObject([9, 7, 11]);
+      });
+    });
   });
 });
