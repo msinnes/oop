@@ -1,0 +1,51 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.1.0
+jobs:
+  checkout_install_build:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          command: yarn && yarn bootstrap
+          name: Bootstrap Packages
+      - persist_to_workspace:
+          root: ~/project
+          paths: .
+  unit_test:
+    executor: node/default
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          command: yarn coverage
+          name: Test Packages with Coverage
+  lint_test:
+    executor: node/default
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          command: yarn lint
+          name: Lint Packages
+workflows:
+  test_modules:
+    jobs:
+      - checkout_install_build:
+          filters:
+            branches:
+              ignore: master
+      - unit_test:
+          requires:
+            - checkout_install_build
+          filters:
+            branches:
+              ignore: master
+      - lint_test:
+          requires:
+            - checkout_install_build
+          filters:
+            branches:
+              ignore: master

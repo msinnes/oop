@@ -17,6 +17,8 @@ const classFunctionDeclaration = state => {
   if (state.cons) {
     params = state.cons.params;
     body = state.cons.body.body;
+  } else if (state.superClass) {
+    params = [builder.restElement(builder.identifier('args'))];
   }
 
   let block;
@@ -24,6 +26,14 @@ const classFunctionDeclaration = state => {
     block = [
       initExpression(),
       ...body,
+      closeExpression(),
+    ];
+  } else if (state.superClass) {
+    block = [
+      initExpression(),
+      builder.expressionStatement(builder.superApplyExpression([builder.identifier('args')])),
+      ...body,
+      ...abstractExpressions(state),
       closeExpression(),
     ];
   } else {

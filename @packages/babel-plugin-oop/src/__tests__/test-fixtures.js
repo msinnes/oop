@@ -23,9 +23,9 @@ class MyClass extends AnotherClass {}
   expected: `
 import { clazz, doExtend } from "@msinnes/oop";
 const MyClass = clazz((_super, svc) => {
-  function MyClass() {
+  function MyClass(...args) {
     svc.init();
-    _super.apply(this);
+    _super.apply(this, args);
     svc.close();
   }
   doExtend(MyClass, _super);
@@ -116,9 +116,9 @@ class MyClass extends AnotherClass {
   expected: `
 import { clazz, doExtend } from "@msinnes/oop";
 const MyClass = clazz((_super, svc) => {
-  function MyClass() {
+  function MyClass(...args) {
     svc.init();
-    _super.apply(this);
+    _super.apply(this, args);
     svc.close();
   }
   doExtend(MyClass, _super, {
@@ -184,9 +184,9 @@ class MyClass extends AnotherClass {
   expected: `
 import { clazz, doExtend } from "@msinnes/oop";
 const MyClass = clazz((_super, svc) => {
-  function MyClass() {
+  function MyClass(...args) {
     svc.init();
-    _super.apply(this);
+    _super.apply(this, args);
     svc.close();
   }
   doExtend(MyClass, _super, {
@@ -363,9 +363,9 @@ const wrappedClass = wrapper(class MyClass extends AnotherClass {})
   expected: `
 import { clazz, doExtend } from "@msinnes/oop";
 const wrappedClass = wrapper(clazz((_super, svc) => {
-  function MyClass() {
+  function MyClass(...args) {
     svc.init();
-    _super.apply(this);
+    _super.apply(this, args);
     svc.close();
   }
   doExtend(MyClass, _super);
@@ -456,9 +456,9 @@ const wrappedClass = wrapper(class MyClass extends AnotherClass {
   expected: `
 import { clazz, doExtend } from "@msinnes/oop";
 const wrappedClass = wrapper(clazz((_super, svc) => {
-  function MyClass() {
+  function MyClass(...args) {
     svc.init();
-    _super.apply(this);
+    _super.apply(this, args);
     svc.close();
   }
   doExtend(MyClass, _super, {
@@ -524,9 +524,9 @@ const wrappedClass = wrapper(class MyClass extends AnotherClass {
   expected: `
 import { clazz, doExtend } from "@msinnes/oop";
 const wrappedClass = wrapper(clazz((_super, svc) => {
-  function MyClass() {
+  function MyClass(...args) {
     svc.init();
-    _super.apply(this);
+    _super.apply(this, args);
     svc.close();
   }
   doExtend(MyClass, _super, {

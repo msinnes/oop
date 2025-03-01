@@ -31,6 +31,8 @@ const memberExpression = (left, right) => {
 
 const oopImportDeclaration = imports => namedImports(imports, '@msinnes/oop');
 
+const restArgs = () => t.restElement(t.identifier('args'));
+
 const superApplyExpression = (args = []) => t.callExpression(
   memberExpression('_super', 'apply'),
   [t.thisExpression(), ...args],
@@ -51,6 +53,7 @@ function Builder() {
   this.objectExpression = t.objectExpression;
   this.objectProperty = t.objectProperty;
   this.returnStatement = t.returnStatement;
+  this.restElement = t.restElement;
 
   this.abstractCallStatement = abstractCallStatement;
   this.applyCallExpression = applyCallExpression;
@@ -58,6 +61,7 @@ function Builder() {
   this.declareConst = declareConst;
   this.memberExpression = memberExpression;
   this.oopImportDeclaration = oopImportDeclaration;
+  this.restArgs = restArgs;
   this.superApplyExpression = superApplyExpression;
   this.wrappedThis = wrappedThis;
 }

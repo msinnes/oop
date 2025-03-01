@@ -38,7 +38,7 @@ const createIntermediate = _super => {
   }
 
   function SuperClass(...args) {
-    _super.apply(this, ...args);
+    _super.apply(this, args);
     superCalled = true;
   }
 
